@@ -52,7 +52,7 @@ class TimelineController extends Controller
             $step['category_name'] = StepCategory::where('id', $step['step_category_id'])->value('name');
             $stepCategory = [
                 'category_name' => $step['category_name'],
-                'status' => StepStatusController::getLatestStatus($step['id'])
+                'status' => StepStatusController::getLatestStatus($step['id']) ?? StepStatusCategory::where('id', $step['status_category_id'])->value('name')
             ];
             $stepCategories[] = $stepCategory;
         }

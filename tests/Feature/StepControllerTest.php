@@ -42,4 +42,19 @@ class StepControllerTest extends TestCase
 
         $response->assertJsonValidationErrors(['candidate_id', 'timeline_id', 'step_category_id', 'status_category_id', 'recruiter_id']);
     }
+
+    public function test_create_step_with_candidate_timeline_missmatch()
+    {
+        $response = $this->postJson('/v1/step/create', [
+            'candidate_id' => 1,
+            'timeline_id' => 5,
+            'step_category_id' => 1,
+            'status_category_id' => 1,
+            'recruiter_id' => 1
+        ]);
+
+        $response->assertStatus(422);
+
+        $response->assertJsonValidationErrors(['timeline_id']);
+    }
 }
