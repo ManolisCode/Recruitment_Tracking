@@ -32,4 +32,4 @@ Route::post('/v1/recruiter/create', [RecruiterController::class, 'create']);
 Route::post('/v1/timeline/create', [TimelineController::class, 'create']);
 Route::post('/v1/step/create', [StepController::class, 'create']);
 Route::post('/v1/step_status/create', [StepStatusController::class, 'create']);
-Route::post('/v1/timeline/fetch', [TimelineController::class, 'fetch']);
+Route::get('/v1/timeline/fetch/{timeline_id}', [TimelineController::class, 'fetch']);

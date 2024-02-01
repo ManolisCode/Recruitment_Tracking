@@ -36,17 +36,16 @@ class TimelineController extends Controller
         return response()->json(['message' => 'Timeline created successfully'], 200);
     }
 
-    public function fetch(Request $request)
+    public function fetch($timeline_id)
     {
-
-        $timeline = Timeline::find($request->timeline_id);
+        $timeline = Timeline::find($timeline_id);
         $recruiter =  Recruiter::find($timeline['recruiter_id']);
         $candidate = Candidate::find($timeline['candidate_id']);
         $timeline['recruiter_name'] = $recruiter['name'];
         $timeline['recruiter_surname'] = $recruiter['surname'];
         $timeline['candidate_name'] = $candidate['name'];
         $timeline['candidate_surname'] = $candidate['surname'];
-        $steps = Step::where('timeline_id', $request->timeline_id)->get();
+        $steps = Step::where('timeline_id', $timeline_id)->get();
         $stepCategories = [];
         foreach ($steps as $step) {
 
