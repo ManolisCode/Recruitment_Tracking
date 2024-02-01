@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         StepStatusCategory::insert([
             ['name' => 'Pending'],
             ['name' => 'Completed'],
-            ['name' => 'Pending'],
+            ['name' => 'Rejected'],
         ]);
     }
 }
