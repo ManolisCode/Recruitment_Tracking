@@ -23,15 +23,6 @@ class CandidateTimelineValidator implements ValidationRule
             return;
         }
 
-        // // Get timeline details
-        // $candidate = Candidate::where('candidate_name', $timeline->candidate_name)->first();
-
-        // if (!$candidate) {
-        //     $fail('The candidate does not exist for the given timeline.');
-        //     return;
-        // }
-
-        // Check if timeline_id matches
         if ($timeline->candidate_id != request('candidate_id')) {
             $fail('The candidate_id and timeline_id do not match.');
         }
