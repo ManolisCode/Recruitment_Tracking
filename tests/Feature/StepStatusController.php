@@ -14,7 +14,7 @@ use Tests\TestCase;
 class StepStatusControllerTest extends TestCase
 {
 
-    public function test_create_step_status_successfully()
+    public function test_can_create_step_status_successfully()
     {
         $recruiter = Recruiter::factory()->create();
         $candidate = Candidate::factory()->create();
@@ -43,5 +43,14 @@ class StepStatusControllerTest extends TestCase
 
 
         $this->assertDatabaseHas('steps', $data);
+    }
+
+    public function test_create_step_with_validation_errors()
+    {
+        $response = $this->postJson('/v1/step_status/create', []);
+
+        $response->assertStatus(422);
+
+        $response->assertJsonValidationErrors(['candidate_id', 'timeline_id', 'step_id', 'status_category_id', 'recruiter_id']);
     }
 }

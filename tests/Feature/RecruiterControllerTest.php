@@ -12,15 +12,7 @@ class RecruiterControllerTest extends TestCase
 
     use WithFaker;
 
-    public function testRecruiterCreationWithValidationErrors()
-    {
-        $response = $this->postJson('/v1/recruiter/create', []);
-
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(['name', 'surname']);
-    }
-
-    public function testRecruiterCreationSuccess()
+    public function test_can_create_recruiter_successfully()
     {
         $data = [
             'name' => $this->faker->firstName,
@@ -31,5 +23,13 @@ class RecruiterControllerTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJson(['message' => 'Recruiter created successfully']);
+    }
+
+    public function test_create_recruiter_with_validation_errors()
+    {
+        $response = $this->postJson('/v1/recruiter/create', []);
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['name', 'surname']);
     }
 }

@@ -9,7 +9,7 @@ use App\Http\Controllers\CandidateController;
 class CandidateControllerTest extends TestCase
 {
 
-    public function testCreateCandidate()
+    public function test_can_create_candidate()
     {
         $candidateName = 'John';
         $candidateSurname = 'Doe';
