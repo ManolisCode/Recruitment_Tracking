@@ -6,7 +6,8 @@
 ## Installation Guide
 
 -   Run composer install
--   Create .env file according to .envexample
+-   Create a database.sqlite file in the route directory
+-   Create .env file according to .envexample (change the path of the database)
 -   Run php artisan migrate
 -   Run php artisan:db seed
 -   Run php artisan serve
