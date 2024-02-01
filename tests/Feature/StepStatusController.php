@@ -35,13 +35,8 @@ class StepStatusControllerTest extends TestCase
             'recruiter_id' => $recruiter->id,
         ];
 
-
         $response = $this->postJson('/v1/step_status/create', $data);
-
-
         $response->assertStatus(200);
-
-
         $this->assertDatabaseHas('steps', $data);
     }
 
