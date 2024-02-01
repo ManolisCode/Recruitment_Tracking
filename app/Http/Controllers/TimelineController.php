@@ -41,6 +41,7 @@ class TimelineController extends Controller
         $timeline = Timeline::find($timeline_id);
         $recruiter =  Recruiter::find($timeline['recruiter_id']);
         $candidate = Candidate::find($timeline['candidate_id']);
+        $timeline['created_at'] = $timeline->created_at->format('Y-m-d H:i:s');
         $timeline['recruiter_name'] = $recruiter['name'];
         $timeline['recruiter_surname'] = $recruiter['surname'];
         $timeline['candidate_name'] = $candidate['name'];
