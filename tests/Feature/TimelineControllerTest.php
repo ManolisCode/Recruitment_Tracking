@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Http\Controllers\StepStatusController;
 use App\Models\Candidate;
 use App\Models\Recruiter;
 use App\Models\Step;
