@@ -17,14 +17,12 @@ class TimelineController extends Controller
 {
     public function create(Request $request)
     {
-        // Define validation rules
         $validator = Validator::make($request->all(), [
             'recruiter_id' => 'required|exists:recruiters,id',
             'candidate_name' => 'required|string|max:255',
             'candidate_surname' => 'required|string|max:255',
         ]);
 
-        // Check if validation fails
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }

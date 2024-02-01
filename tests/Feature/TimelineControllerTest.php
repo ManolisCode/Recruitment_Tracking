@@ -16,7 +16,6 @@ class TimelineControllerTest extends TestCase
     public function test_create_timeline_successfully()
     {
 
-
         $recruiter = Recruiter::factory()->create();
 
         $candidateData = [

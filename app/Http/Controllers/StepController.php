@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Rules\CandidateTimelineValidator;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Step;
-use App\Models\StepStatus;
 
 class StepController extends Controller
 {

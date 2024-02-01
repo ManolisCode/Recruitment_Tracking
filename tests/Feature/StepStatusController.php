@@ -13,9 +13,7 @@ use Tests\TestCase;
 
 class StepStatusControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+
     public function test_create_step_status_successfully()
     {
         $recruiter = Recruiter::factory()->create();
