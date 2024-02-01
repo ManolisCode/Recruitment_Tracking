@@ -38,7 +38,15 @@ class TimelineController extends Controller
 
     public function fetch($timeline_id)
     {
+        $validator = Validator::make(['timeline_id' => $timeline_id], [
+            'timeline_id' => 'required|exists:timelines,id',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
         $timeline = Timeline::find($timeline_id);
+
         $recruiter =  Recruiter::find($timeline['recruiter_id']);
         $candidate = Candidate::find($timeline['candidate_id']);
         $timeline['created_at'] = $timeline->created_at->format('Y-m-d H:i:s');
