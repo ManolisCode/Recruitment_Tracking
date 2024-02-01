@@ -5,8 +5,6 @@ namespace Tests\Feature;
 use App\Models\Candidate;
 use App\Models\Recruiter;
 use App\Models\Timeline;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 

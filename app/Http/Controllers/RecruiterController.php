@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Validator;
 class RecruiterController extends Controller
 {
     public function create(Request $request)
-
-
     {
         $messages = ['required' => 'The :attribute field is required.'];
         $validator = Validator::make($request->all(), [
